@@ -24,9 +24,10 @@
         </div>
 
           <button 
-          class="md:hidden menu-toggle-btn relative p-2 rounded-lg transition-all duration-300 hover:scale-110 active:scale-95 text-gray-700 hover:bg-gray-100"
+          class="md:hidden menu-toggle-btn relative p-2 rounded-lg transition-all duration-300 hover:scale-110 active:scale-95 hover:bg-gray-100"
           :class="[
-            mobileMenuOpen ? 'open' : ''
+            mobileMenuOpen ? 'open' : '',
+            (isHome && !scrolled) ? 'text-white' : 'text-gray-800'
           ]"
           @click="toggleMobileMenu"
         >
