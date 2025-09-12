@@ -7,7 +7,12 @@
             :icon="['fas', 'mountain']" 
             class="text-2xl text-blue-600 transition-colors duration-300"
           />
-          <span :class="['text-xl font-bold transition-colors duration-300 font-inter select-none navbar-text brand-text', (isHome && !scrolled) ? 'text-white drop-shadow-lg' : 'text-gray-800']">Pramana Putra Tour</span>
+          <router-link 
+            :to="{ name: 'Home' }"
+            :class="['text-xl font-bold transition-colors duration-300 font-inter select-none navbar-text brand-text', (isHome && !scrolled) ? 'text-white drop-shadow-lg' : 'text-gray-800']"
+          >
+            Pramana Putra Tour
+          </router-link>
         </div>
 
         <div class="hidden md:flex space-x-8">
