@@ -34,7 +34,7 @@
     <!-- Packages Section -->
     <section class="container mx-auto px-4 py-20">
       <div class="text-center mb-12">
-        <h2 class="text-3xl font-bold text-gray-800 mb-4">Choose Your Adventure</h2>
+        <h2 class="text-3xl font-bold text-gray-800 mb-4">Choose Your Package</h2>
         <p class="text-lg text-gray-600 max-w-2xl mx-auto">
           From cultural explorations to thrilling adventures, find the perfect package that matches your travel dreams
         </p>
