@@ -10,12 +10,7 @@
     </div>
   </div>
 
-  <div 
-    v-else 
-    class="bg-white rounded-xl shadow-lg overflow-hidden hover-scale group cursor-pointer"
-    :class="{ 'animate-card-entrance': isVisible }"
-    :style="{ 'animation-delay': `${(index * 0.1) + 0.3}s` }"
-  >
+  <div v-else class="bg-white rounded-xl shadow-lg overflow-hidden hover-scale group cursor-pointer">
     <!-- Image Section -->
     <div class="relative overflow-hidden">
       <img 
@@ -70,7 +65,7 @@
           <span v-if="packageData.originalPrice" class="text-sm text-gray-400 line-through mr-2">{{ packageData.originalPrice }}</span>
           <span class="text-2xl font-extrabold text-blue-700">{{ packageData.discountedPrice || packageData.price }}</span>
         </div>
-        <div class="text-sm text-gray-600">/car</div>
+        <div class="text-sm text-gray-600">/orang</div>
       </div>
       
       <!-- Action Buttons -->
@@ -85,7 +80,7 @@
           @click="selectPackage"
           class="w-full bg-blue-700 text-white py-3 rounded-full font-semibold shadow-lg cursor-pointer hover:bg-blue-800 transition-colors"
         >
-          Book Now
+          Pesan Sekarang
         </button>
       </div>
     </div>
@@ -102,11 +97,8 @@ export default {
     },
     index: {
       type: Number,
+      required: false,
       default: 0
-    },
-    isVisible: {
-      type: Boolean,
-      default: true
     }
   },
   
@@ -187,80 +179,30 @@ export default {
   }
 }
 
-/* Card entrance animation */
-.animate-card-entrance {
-  animation: cardEntrance 0.6s ease-out forwards;
-}
-
-@keyframes cardEntrance {
-  from {
-    opacity: 0;
-    transform: translateY(40px) scale(0.95);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0) scale(1);
-  }
-}
-
-/* Initial state for cards */
-.bg-white {
-  opacity: 0;
-  transform: translateY(40px) scale(0.95);
-}
-
-/* Enhanced hover effects */
-.hover-scale {
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
 .hover-scale:hover {
-  transform: translateY(-8px) scale(1.02);
-  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  transform: scale(1.02);
+  transition: transform 0.3s ease-in-out;
 }
 
-/* Enhanced button hover effects */
-button {
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+/* New animation for fade-in and slide-up */
+@keyframes fadeSlideUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
-button:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+.fade-slide-up {
+  animation-name: fadeSlideUp;
+  animation-duration: 0.6s;
+  animation-fill-mode: both;
+  animation-timing-function: ease-out;
 }
 
-/* Image hover effect enhancement */
-.group:hover img {
-  transform: scale(1.1);
-  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-/* Badge hover effects */
-.absolute {
-  transition: all 0.3s ease;
-}
-
-.group:hover .absolute {
-  transform: scale(1.05);
-}
-
-/* Feature tags hover effects */
-.bg-blue-100, .bg-green-100, .bg-purple-100 {
-  transition: all 0.3s ease;
-}
-
-.group:hover .bg-blue-100 {
-  background-color: rgb(219 234 254);
-  transform: translateY(-1px);
-}
-
-.group:hover .bg-green-100 {
-  background-color: rgb(220 252 231);
-  transform: translateY(-1px);
-}
-
-.group:hover .bg-purple-100 {
-  background-color: rgb(237 233 254);
-  transform: translateY(-1px);
-}
 </style>
+
+/* Staggered animation delay using inline style */
